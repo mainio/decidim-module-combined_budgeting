@@ -94,10 +94,10 @@ module Decidim
         end
 
         def combined_process
-          return unless params["slug"]
+          return unless params[:slug]
 
           @combined_process ||= processes.where(
-            slug: params["slug"]
+            slug: params[:slug]
           ).first!
         end
       end
