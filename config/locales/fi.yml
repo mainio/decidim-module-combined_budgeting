@@ -1,0 +1,79 @@
+fi:
+  activerecord:
+    models:
+      decidim/combined_budgeting/process: Prosessi
+  activemodel:
+    attributes:
+      decidim/combined_budgeting/process:
+        title: Otsikko
+        description: Kuvaus
+        slug: Tunniste
+        component_ids: Komponentit
+        authorizations: Tunnistautumiset
+  decidim:
+    admin:
+      menu:
+        combined_budgeting: Yhdistetty budjetointi
+    combined_budgeting:
+      admin:
+        actions:
+          new_process: Uusi prosessi
+          publish: Julkaise
+          unpublish: Lopeta julkaisu
+        process_publications:
+          create:
+            error: Prosessin julkaisussa tapahtui virhe.
+            success: Prosessin julkaisu onnistui.
+          destroy:
+            error: Tämän prosessin julkaisun lopetuksessa tapahtui virhe.
+            success: Prosessin julkaisu lopetettu onnistuneesti.
+        processes:
+          create:
+            error: Prosessin luonnissa tapahtui virhe.
+            success: Prosessin julkaisu onnistui.
+          destroy:
+            error: Prosessin poistossa tapahtui virhe.
+            success: Prosessin poistaminen onnistui.
+          edit:
+            title: Muokkaa prosessia
+            save: Tallenna
+          form:
+            title: Prosessi
+            slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+            slug_help_sample: esimerkki
+          index:
+            no_records_html: Tietueita ei ole saatavilla.
+            not_published: Ei julkaistu
+            published: Julkaistu
+          new:
+            create: Luo
+            title: Uusi prosessi
+          update:
+            error: Prosessin päivittämisessä tapahtui virhe.
+            success: Prosessin päivitys onnistui.
+        titles:
+          processes: Prosessit
+      processes:
+        authorizations:
+          title: Tunnistautuminen
+          description: Suoritaaksesi budjetointiäänestyksen, sinun tulee tunnistautua.
+        authorizations_list:
+          pending_authorizations: Odottavat tunnistautumiset
+          pending_authorizations_explanation: Seuraavat tunnistautumiset odottavat käyttäjän toimia. Odota lisätietoja siitä, kuinka voit viimeistellä tunnistautumiset.
+        component:
+          more_info: Lisätietoja
+          vote: Äänestä
+        index:
+          active_processes: Käynnissä nyt
+        process:
+          vote: Äänestä
+        show:
+          select_voting: Valitse äänestys
+      models:
+        processes:
+          fields:
+            created_at: Luonnin ajankohta
+            published: Julkaistu
+            title: Otsikko
+    menu:
+      combined_budgeting: Budjetointi
