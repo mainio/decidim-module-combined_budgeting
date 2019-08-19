@@ -40,8 +40,18 @@ module Decidim
 
         private
 
+        def organization_processes
+          @organization_processes ||= Decidim::CombinedBudgeting::Process.where(
+            organization: current_organization
+          )
+        end
+
         def combined_process
-          @combined_process ||= Decidim::CombinedBudgeting::Process.find(params[:process_id])
+          return unless params[:process_slug]
+
+          @combined_process ||= organization_processes.where(
+            slug: params[:process_slug]
+          ).first!
         end
       end
     end
