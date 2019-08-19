@@ -1,0 +1,12 @@
+<section class="wrapper">
+  <div class="row" id="active-processes">
+    <div class="text-center">
+      <h1 class="heading1 page-title"><%= t(".select_voting") %></h1>
+    </div>
+    <div class="row collapse">
+      <% @components.each do |component| %>
+        <%= render partial: "component", locals: { component: component } %>
+      <% end %>
+    </div>
+  </div>
+</section>

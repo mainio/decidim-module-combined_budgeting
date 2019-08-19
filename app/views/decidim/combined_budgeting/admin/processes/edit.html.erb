@@ -1,0 +1,15 @@
+<%= decidim_form_for(@form, url: process_path(combined_process), html: { class: "form combined-budgeting-process-form edit_combined_budgeting_process combined_budgeting_process_form_admin" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t(".title") } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".save") %>
+
+    <% if allowed_to? :publish, :process, process: combined_process %>
+      <% if combined_process.published? %>
+        <%= link_to t("actions.unpublish", scope: "decidim.combined_budgeting.admin"), process_publish_path(combined_process), method: :delete, class: "button muted" %>
+      <% else %>
+        <%= link_to t("actions.publish", scope: "decidim.combined_budgeting.admin"), process_publish_path(combined_process), method: :post, class: "button hollow" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

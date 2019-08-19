@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: processes_path, html: { class: "form combined-budgeting-processes-form new_combined_budgeting_process combined_budgeting_process_form_admin" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t(".title") } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".create") %>
+  </div>
+<% end %>
