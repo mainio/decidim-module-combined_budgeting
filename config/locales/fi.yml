@@ -1,0 +1,79 @@
+fi:
+  activerecord:
+    models:
+      decidim/combined_budgeting/process: Process
+  activemodel:
+    attributes:
+      decidim/combined_budgeting/process:
+        title: Title
+        description: Description
+        slug: Slug
+        component_ids: Components
+        authorizations: Authorizations
+  decidim:
+    admin:
+      menu:
+        combined_budgeting: Combined budgeting
+    combined_budgeting:
+      admin:
+        actions:
+          new_process: New process
+          publish: Publish
+          unpublish: Unpublish
+        process_publications:
+          create:
+            error: There was a problem publishing this process.
+            success: Process successfully published.
+          destroy:
+            error: There was a problem unpublishing this process.
+            success: Process successfully unpublished.
+        processes:
+          create:
+            error: There was a problem creating this process.
+            success: Process successfully created.
+          destroy:
+            error: There was a deleting this process.
+            success: Process successfully deleted.
+          edit:
+            title: Edit process
+            save: Save
+          form:
+            title: Process
+            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_sample: example
+          index:
+            no_records_html: No recrods available.
+            not_published: Not published
+            published: Published
+          new:
+            create: Create
+            title: New process
+          update:
+            error: There was a problem updating this process.
+            success: Process successfully updated.
+        titles:
+          processes: Processes
+      processes:
+        authorizations:
+          title: Authorization
+          description: In order to perform the budget voting, you need to authorize yourself.
+        authorizations_list:
+          pending_authorizations: Pending authorization
+          pending_authorizations_explanation: The following authorizations are pending user action. Please wait for more information on how to complete the authorizations.
+        component:
+          more_info: More info
+          vote: Vote
+        index:
+          active_processes: Active now
+        process:
+          vote: Vote
+        show:
+          select_voting: Select voting
+      models:
+        processes:
+          fields:
+            created_at: Created at
+            published: Published
+            title: Title
+    menu:
+      combined_budgeting: Budgeting
