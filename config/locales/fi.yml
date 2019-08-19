@@ -1,79 +1,79 @@
 fi:
   activerecord:
     models:
-      decidim/combined_budgeting/process: Process
+      decidim/combined_budgeting/process: Prosessi
   activemodel:
     attributes:
       decidim/combined_budgeting/process:
-        title: Title
-        description: Description
-        slug: Slug
-        component_ids: Components
-        authorizations: Authorizations
+        title: Otsikko
+        description: Kuvaus
+        slug: Tunniste
+        component_ids: Komponentit
+        authorizations: Tunnistautumiset
   decidim:
     admin:
       menu:
-        combined_budgeting: Combined budgeting
+        combined_budgeting: Yhdistetty budjetointi
     combined_budgeting:
       admin:
         actions:
-          new_process: New process
-          publish: Publish
-          unpublish: Unpublish
+          new_process: Uusi prosessi
+          publish: Julkaise
+          unpublish: Lopeta julkaisu
         process_publications:
           create:
-            error: There was a problem publishing this process.
-            success: Process successfully published.
+            error: Prosessin julkaisussa tapahtui virhe.
+            success: Prosessin julkaisu onnistui.
           destroy:
-            error: There was a problem unpublishing this process.
-            success: Process successfully unpublished.
+            error: Tämän prosessin julkaisun lopetuksessa tapahtui virhe.
+            success: Prosessin julkaisu lopetettu onnistuneesti.
         processes:
           create:
-            error: There was a problem creating this process.
-            success: Process successfully created.
+            error: Prosessin luonnissa tapahtui virhe.
+            success: Prosessin julkaisu onnistui.
           destroy:
-            error: There was a deleting this process.
-            success: Process successfully deleted.
+            error: There was a problem deleting this process.
+            success: Prosessin poistaminen onnistui.
           edit:
-            title: Edit process
-            save: Save
+            title: Muokkaa prosessia
+            save: Tallenna
           form:
-            title: Process
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
-            slug_help_sample: example
+            title: Prosessi
+            slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+            slug_help_sample: esimerkki
           index:
-            no_records_html: No recrods available.
-            not_published: Not published
-            published: Published
+            no_records_html: Tietueita ei ole saatavilla.
+            not_published: Ei julkaistu
+            published: Julkaistu
           new:
-            create: Create
-            title: New process
+            create: Luo
+            title: Uusi prosessi
           update:
-            error: There was a problem updating this process.
-            success: Process successfully updated.
+            error: Prosessin päivittämisessä tapahtui virhe.
+            success: Prosessin päivitys onnistui.
         titles:
-          processes: Processes
+          processes: Prosessit
       processes:
         authorizations:
-          title: Authorization
-          description: In order to perform the budget voting, you need to authorize yourself.
+          title: Tunnistautuminen
+          description: Suoritaaksesi budjetointiäänestyksen, sinun tulee tunnistautua.
         authorizations_list:
-          pending_authorizations: Pending authorization
+          pending_authorizations: Odottavat tunnistautumiset
           pending_authorizations_explanation: The following authorizations are pending user action. Please wait for more information on how to complete the authorizations.
         component:
-          more_info: More info
-          vote: Vote
+          more_info: Lisätietoja
+          vote: Äänestä
         index:
-          active_processes: Active now
+          active_processes: Käynnissä nyt
         process:
-          vote: Vote
+          vote: Äänestä
         show:
-          select_voting: Select voting
+          select_voting: Valitse äänestys
       models:
         processes:
           fields:
-            created_at: Created at
-            published: Published
-            title: Title
+            created_at: Luonnin ajankohta
+            published: Julkaistu
+            title: Otsikko
     menu:
-      combined_budgeting: Budgeting
+      combined_budgeting: Budjetointi
