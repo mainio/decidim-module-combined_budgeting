@@ -32,7 +32,7 @@ fi:
             error: Prosessin luonnissa tapahtui virhe.
             success: Prosessin julkaisu onnistui.
           destroy:
-            error: There was a problem deleting this process.
+            error: Prosessin poistossa tapahtui virhe.
             success: Prosessin poistaminen onnistui.
           edit:
             title: Muokkaa prosessia
@@ -59,7 +59,7 @@ fi:
           description: Suoritaaksesi budjetointiäänestyksen, sinun tulee tunnistautua.
         authorizations_list:
           pending_authorizations: Odottavat tunnistautumiset
-          pending_authorizations_explanation: The following authorizations are pending user action. Please wait for more information on how to complete the authorizations.
+          pending_authorizations_explanation: Seuraavat tunnistautumiset odottavat käyttäjän toimia. Odota lisätietoja siitä, kuinka voit viimeistellä tunnistautumiset.
         component:
           more_info: Lisätietoja
           vote: Äänestä
