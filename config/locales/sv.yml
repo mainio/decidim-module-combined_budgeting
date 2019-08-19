@@ -32,7 +32,7 @@ sv:
             error: There was a problem creating this process.
             success: Process successfully created.
           destroy:
-            error: There was a deleting this process.
+            error: There was a problem deleting this process.
             success: Process successfully deleted.
           edit:
             title: Edit process
