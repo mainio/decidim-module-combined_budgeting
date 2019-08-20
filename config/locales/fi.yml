@@ -63,6 +63,8 @@ fi:
         component:
           more_info: Lisätietoja
           vote: Äänestä
+          status:
+            voted: Äänestys suoritettu
         index:
           active_processes: Käynnissä nyt
         process:
