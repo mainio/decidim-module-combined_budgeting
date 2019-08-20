@@ -8,8 +8,6 @@ module Decidim
 
       helper CombinedBudgeting::BudgetingPathsHelper
 
-      # layout "layouts/decidim/combined_budgeting/participatory_process"
-
       def self.controller_path
         "decidim/budgets/line_items"
       end
