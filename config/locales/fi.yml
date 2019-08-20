@@ -64,7 +64,7 @@ fi:
           more_info: Lisätietoja
           vote: Äänestä
           status:
-            voted: Voting completed
+            voted: Äänestys suoritettu
         index:
           active_processes: Käynnissä nyt
         process:
