@@ -1,0 +1,8 @@
+<% if has_voted_on?(current_component) %>
+  <div class="flash callout secondary">
+    <%= t(".already_voted") %>
+    <% if current_combined_process.components.count > 1 %>
+      <%= link_to(t(".back_to_listing"), processes_path) %>
+    <% end %>
+  </div>
+<% end %>
