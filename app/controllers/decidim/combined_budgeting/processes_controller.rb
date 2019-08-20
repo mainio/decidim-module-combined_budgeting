@@ -23,6 +23,11 @@ module Decidim
 
         if authorize_step
           session["active_combined_budgeting_process_id"] = current_process.id
+          if unauthorized_verifications.count == 1
+            verification = unauthorized_verifications.first
+            return redirect_to verification.root_path
+          end
+
           return render :authorizations
         end
 
