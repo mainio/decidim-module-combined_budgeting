@@ -79,7 +79,7 @@ fi:
     decidim:
       combined_budgeting:
         voted_notification:
-          already_voted: You have already voted in this voting.
-          back_to_listing: Back to listing
+          already_voted: Olet jo äänestänyt tässä äänestyksessä.
+          back_to_listing: Takaisin listaukseen
     menu:
-      combined_budgeting: Budgeting
+      combined_budgeting: Budjetointi
