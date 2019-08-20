@@ -63,6 +63,8 @@ en:
         component:
           more_info: More info
           vote: Vote
+          status:
+            voted: Voting completed
         index:
           active_processes: Active now
         process:

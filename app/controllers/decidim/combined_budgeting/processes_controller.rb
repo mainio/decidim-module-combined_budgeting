@@ -8,7 +8,7 @@ module Decidim
 
       layout "layouts/decidim/application"
 
-      helper_method :processes, :current_process
+      helper_method :processes, :current_process, :has_voted_on?
 
       def index
         raise ActionController::RoutingError, "Not Found" if processes.none?

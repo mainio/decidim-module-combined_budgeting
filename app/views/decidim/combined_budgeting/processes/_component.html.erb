@@ -7,6 +7,9 @@ target_path = process_component_projects_path(current_process, component)
   <div class="row collapse card--process__row">
     <div class="columns mediumlarge-8 large-6 card--process__column">
       <div class="card__content">
+        <% if has_voted_on?(component) %>
+          <span class="label success"><%= t(".status.voted") %></span>
+        <% end %>
         <%= link_to target_path, class: "card__link" do %>
           <h2 class="card__title"><%= translated_attribute participatory_space.title %></h2>
         <% end %>
