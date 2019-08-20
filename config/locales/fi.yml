@@ -75,5 +75,11 @@ fi:
             created_at: Luonnin ajankohta
             published: Julkaistu
             title: Otsikko
+  layouts:
+    decidim:
+      combined_budgeting:
+        voted_notification:
+          already_voted: You have already voted in this voting.
+          back_to_listing: Back to listing
     menu:
-      combined_budgeting: Budjetointi
+      combined_budgeting: Budgeting
