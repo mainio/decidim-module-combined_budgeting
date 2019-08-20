@@ -18,6 +18,19 @@ module Decidim
 
         order.checked_out?
       end
+
+      def authorized_components
+        current_combined_process.components.select do |component|
+          project = Decidim::Budgets::Project.where(component: component).first
+
+          Decidim::ActionAuthorizer.new(
+            current_user,
+            :vote,
+            component,
+            project
+          ).authorize.ok?
+        end
+      end
     end
   end
 end

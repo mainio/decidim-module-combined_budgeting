@@ -8,7 +8,7 @@ module Decidim
 
       helper CombinedBudgeting::BudgetingPathsHelper
       helper CombinedBudgeting::ProjectCellHelper
-      helper_method :has_voted_on?
+      helper_method :has_voted_on?, :authorized_components
 
       layout "layouts/decidim/combined_budgeting/participatory_process"
 

@@ -37,12 +37,8 @@ module Decidim
         # available.
         return unless @components.count == 1
 
-        # In case there is only a single component the user has not voted on
-        # yet, there's no need to show the listing.
-        component = @components.first
-        return if has_voted_on?(component)
-
         # Redirect the user directly to the voting.
+        component = @components.first
         component_path = process_component_projects_path(
           current_process,
           component
@@ -112,19 +108,7 @@ module Decidim
           slug: params[:slug]
         ).first!
       end
-
-      def authorized_components
-        current_process.components.select do |component|
-          project = Decidim::Budgets::Project.where(component: component).first
-
-          Decidim::ActionAuthorizer.new(
-            current_user,
-            :vote,
-            component,
-            project
-          ).authorize.ok?
-        end
-      end
+      alias current_combined_process current_process
     end
   end
 end
