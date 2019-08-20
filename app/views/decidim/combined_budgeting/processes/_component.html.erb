@@ -24,7 +24,7 @@ target_path = process_component_projects_path(current_process, component)
            style="background-image:url(<%= participatory_space.hero_image.url %>)">
         <div class="card__content row collapse">
           <div class="large-6 large-offset-6 columns">
-            <%= link_to t(".vote"), target_path, class: "button expanded button--sc" %>
+            <%= link_to(has_voted_on?(component) ? t(".more_info") : t(".vote"), target_path, class: "button expanded button--sc") %>
           </div>
         </div>
       </div>
