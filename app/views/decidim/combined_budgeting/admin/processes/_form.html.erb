@@ -25,7 +25,7 @@
   <div class="card-section">
     <div class="row column">
       <% if authorizations_for_select %>
-        <%= form.select :authorizations, authorizations_for_select, {}, { multiple: true, class: "chosen-select" } %>
+        <%= form.select :authorizations, authorizations_for_select, { include_hidden: false }, { multiple: true, class: "chosen-select" } %>
       <% end %>
     </div>
   </div>
@@ -33,7 +33,7 @@
   <div class="card-section">
     <div class="row column">
       <% if components_for_select %>
-        <%= form.select :component_ids, components_for_select, {}, { multiple: true, class: "chosen-select" } %>
+        <%= form.select :component_ids, components_for_select, { include_hidden: false }, { multiple: true, class: "chosen-select" } %>
       <% end %>
     </div>
   </div>
