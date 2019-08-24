@@ -78,7 +78,7 @@ fi:
             published: Julkaistu
             title: Otsikko
     menu:
-      combined_budgeting: Budgeting
+      combined_budgeting: Budjetointi
   layouts:
     decidim:
       combined_budgeting:
