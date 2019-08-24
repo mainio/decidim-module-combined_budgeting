@@ -77,11 +77,11 @@ fi:
             created_at: Luonnin ajankohta
             published: Julkaistu
             title: Otsikko
+    menu:
+      combined_budgeting: Budjetointi
   layouts:
     decidim:
       combined_budgeting:
         voted_notification:
           already_voted: Olet jo äänestänyt tässä äänestyksessä.
           back_to_listing: Takaisin listaukseen
-    menu:
-      combined_budgeting: Budjetointi
