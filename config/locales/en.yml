@@ -77,11 +77,11 @@ en:
             created_at: Created at
             published: Published
             title: Title
+    menu:
+      combined_budgeting: Budgeting
   layouts:
     decidim:
       combined_budgeting:
         voted_notification:
           already_voted: You have already voted in this voting.
           back_to_listing: Back to listing
-    menu:
-      combined_budgeting: Budgeting
