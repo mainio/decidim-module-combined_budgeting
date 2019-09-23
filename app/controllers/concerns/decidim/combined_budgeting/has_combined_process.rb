@@ -8,7 +8,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        helper_method :current_combined_process
+        helper_method :combined_processes, :current_combined_process
       end
 
       def current_participatory_space
@@ -29,10 +29,14 @@ module Decidim
         )
       end
 
+      def combined_processes
+        @combined_processes ||= organization_combined_processes.where.not(published_at: nil)
+      end
+
       def current_combined_process
         return unless params[:process_slug]
 
-        @current_combined_process ||= organization_combined_processes.where(
+        @current_combined_process ||= combined_processes.where(
           slug: params[:process_slug]
         ).first!
       end

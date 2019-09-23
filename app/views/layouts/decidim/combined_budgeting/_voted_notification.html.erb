@@ -1,8 +1,23 @@
 <% if has_voted_on?(current_component) %>
-  <div class="flash callout secondary">
-    <%= t(".already_voted") %>
-    <% if authorized_components.count > 1 %>
-      <%= link_to(t(".back_to_listing"), processes_path) %>
-    <% end %>
+  <div class="row column text-large">
+    <p><%= t(".already_voted") %></p>
+
+    <div class="section text-medium">
+      <%
+      back_to_path = begin
+        if authorized_components.count.positive?
+          process_path(current_combined_process)
+        elsif combined_processes.count.positive?
+          processes_path
+        else
+          root_path
+        end
+      end
+      %>
+      <%= link_to back_to_path, class: "muted-link" do %>
+        <%= icon "chevron-left", class: "icon--small" %>
+        <%= t(".back_to_listing") %>
+      <% end %>
+    </div>
   </div>
 <% end %>
