@@ -5,9 +5,9 @@
     <div class="section text-medium">
       <%
       back_to_path = begin
-        if authorized_components.count.positive?
+        if authorized_components.count > 1
           process_path(current_combined_process)
-        elsif combined_processes.count.positive?
+        elsif combined_processes.count > 1
           processes_path
         else
           root_path
