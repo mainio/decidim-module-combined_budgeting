@@ -71,7 +71,8 @@ module Decidim
       def active_authorization_methods
         Decidim::Verifications::Authorizations.new(
           organization: current_organization,
-          user: current_user
+          user: current_user,
+          name: current_process.authorizations
         ).pluck(:name)
       end
 
@@ -79,7 +80,8 @@ module Decidim
         Decidim::Verifications::Authorizations.new(
           organization: current_organization,
           user: current_user,
-          granted: true
+          granted: true,
+          name: current_process.authorizations
         ).query
       end
 
@@ -87,7 +89,8 @@ module Decidim
         Decidim::Verifications::Authorizations.new(
           organization: current_organization,
           user: current_user,
-          granted: false
+          granted: false,
+          name: current_process.authorizations
         ).query
       end
 
