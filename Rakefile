@@ -2,26 +2,41 @@
 
 require "decidim/dev/common_rake"
 
+def install_module(path)
+  Dir.chdir(path) do
+    system("bundle exec rake decidim_combined_budgeting:install:migrations")
+    system("bundle exec rake db:migrate")
+  end
+end
+
+def seed_db(path)
+  Dir.chdir(path) do
+    system("bundle exec rake db:seed")
+  end
+end
+
 desc "Generates a dummy app for testing"
-task test_app: "decidim:generate_external_test_app"
+task test_app: "decidim:generate_external_test_app" do
+  ENV["RAILS_ENV"] = "test"
+  install_module("spec/decidim_dummy_app")
+end
 
 desc "Generates a development app."
-task development_app: "decidim:generate_external_development_app" do
-  # Copy the initializer and translation file to the development app folder
-  # base_path = __dir__
-  # source_path = "#{base_path}/lib/decidim/combined_budgeting/generators/app_templates"
-  # target_path = "#{base_path}/development_app/config"
-  # FileUtils.cp(
-  #   "#{source_path}/initializer.rb",
-  #   "#{target_path}/initializers/decidim_verifications_combined_budgeting.rb"
-  # )
-  # FileUtils.cp(
-  #   "#{source_path}/en.yml",
-  #   "#{target_path}/locales/decidim-combined_budgeting.en.yml"
-  # )
-  #
-  # # Seed the DB after the initializer has been installed
-  # Dir.chdir("development_app") do
-  #   system("bundle exec rake db:seed")
-  # end
+task :development_app do
+  # Manually generate the development app in order to seed the database after
+  # installing the module.
+  Bundler.with_original_env do
+    generate_decidim_app(
+      "development_app",
+      "--app_name",
+      "#{base_app_name}_development_app",
+      "--path",
+      "..",
+      "--recreate_db",
+      "--demo"
+    )
+  end
+
+  install_module("development_app")
+  seed_db("development_app")
 end
