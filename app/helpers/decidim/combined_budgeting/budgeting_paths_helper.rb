@@ -32,11 +32,11 @@ module Decidim
         )
       end
 
-      def order_line_item_path(order)
+      def order_line_item_path(*args)
         decidim_combined_budgeting.process_component_order_line_item_path(
           current_combined_process,
           current_component,
-          order
+          *args
         )
       end
 
@@ -47,7 +47,7 @@ module Decidim
       end
 
       def respond_to_missing?(method, include_private = false)
-        return true if name.to_s =~ /_(path|url)$/
+        return true if method.to_s =~ /_(path|url)$/
 
         super
       end
