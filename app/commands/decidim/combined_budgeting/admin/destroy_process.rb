@@ -33,7 +33,7 @@ module Decidim
 
         private
 
-        attr_reader :process
+        attr_reader :process, :current_user
       end
     end
   end
