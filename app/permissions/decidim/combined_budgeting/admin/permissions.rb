@@ -26,31 +26,23 @@ module Decidim
 
         private
 
-        # It's an admin user if it's an organization admin or is a space admin
-        # for the current `process`.
+        # It's an admin user if it's an organization admin.
         def admin_user?
-          user.admin? || has_manageable_processes?
-        end
-
-        # Checks if it has any manageable process, with any possible role.
-        def has_manageable_processes?
-          return unless user
-
-          CombinedBudgeting::Process.any?
+          user.admin?
         end
 
         # Everyone can read the process list
         def user_can_read_process_list?
           return unless read_process_list_permission_action?
 
-          toggle_allow(user.admin? || has_manageable_processes?)
+          toggle_allow(user.admin?)
         end
 
         def user_can_read_current_process?
           return unless read_process_list_permission_action?
           return if permission_action.subject == :process_list
 
-          toggle_allow(user.admin? || can_manage_process?)
+          toggle_allow(user.admin?)
         end
 
         # Only organization admins can create a process
