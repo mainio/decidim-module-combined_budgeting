@@ -34,7 +34,8 @@ module Decidim
               space_components[group] ||= []
 
               name = translated_attribute(component.participatory_space.title)
-              name += " - #{translated_attribute(component.name)}"
+              name += " (##{component.participatory_space.id})"
+              name += " - #{translated_attribute(component.name)} (##{component.id})"
               space_components[group] << [name, component.id]
             end
 
