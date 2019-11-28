@@ -19,7 +19,7 @@ FactoryBot.define do
     after(:create) do |process, evaluator|
       components = evaluator.components
       if components.empty?
-        components = evaluator.components_amount.times.map do
+        components = Array.new(evaluator.components_amount).map do
           create(:component, manifest_name: :budgets, organization: process.organization)
         end
       end

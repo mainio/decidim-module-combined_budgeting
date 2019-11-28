@@ -10,7 +10,7 @@ describe Decidim::CombinedBudgeting::Admin::SelectionHelper do
     )
   end
   let!(:components) do
-    10.times.map do
+    Array.new(10).map do
       create(:budget_component, :published, organization: organization)
     end
   end
