@@ -34,7 +34,7 @@ module Decidim
           return unless process_id
 
           process = CombinedBudgeting::Process.find_by(id: process_id)
-          redirect("/budgeting/#{process.slug}") if process
+          redirect("/budgeting/#{process.slug}") if process && process.published?
         end
 
         def in_verification?(request)
