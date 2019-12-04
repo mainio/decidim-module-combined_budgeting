@@ -4,9 +4,7 @@ rvm:
  - 2.6.5
 
 addons:
-  apt:
-    packages:
-      - chromium-chromedriver
+  chrome: stable
   postgresql: "9.5"
 
 env:
@@ -17,6 +15,7 @@ env:
     - GEM=. DB=postgres
 
 before_script:
+  - bundle exec rails runner "Webdrivers::Chromedriver.update"
   - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
 
 script:
