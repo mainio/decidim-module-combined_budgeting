@@ -40,6 +40,18 @@ module Decidim
         )
       end
 
+      # Required for pagination to work correctly, otherwise the index url could
+      # not be generated correctly.
+      def url_for(options = nil)
+        return super if !options.is_a?(Hash) && !options.is_a?(ActionController::Parameters)
+        return super unless options["controller"] == "decidim/combined_budgeting/projects"
+
+        options["participatory_process_id"] = current_combined_process.id
+        options["component_id"] = current_component.id
+
+        super
+      end
+
       def method_missing(method, *args)
         return decidim_budgets.send(method, *args) if method.to_s =~ /_(path|url)$/
 
