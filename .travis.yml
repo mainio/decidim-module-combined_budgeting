@@ -4,6 +4,9 @@ rvm:
  - 2.6.5
 
 addons:
+  apt:
+    packages:
+      - chromium-chromedriver
   postgresql: "9.5"
 
 env:
@@ -12,6 +15,9 @@ env:
     - BUNDLE_PATH="$HOME/.bundle"
   matrix:
     - GEM=. DB=postgres
+
+before_script:
+  - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
 
 script:
   - cd $GEM;
