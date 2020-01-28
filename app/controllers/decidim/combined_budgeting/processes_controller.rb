@@ -73,7 +73,7 @@ module Decidim
           organization: current_organization,
           user: current_user,
           name: current_process.authorizations
-        ).pluck(:name)
+        ).reject(&:expired?).pluck(:name)
       end
 
       def granted_authorizations
@@ -82,16 +82,17 @@ module Decidim
           user: current_user,
           granted: true,
           name: current_process.authorizations
-        ).query
+        ).query.reject(&:expired?)
       end
 
       def pending_authorizations
         Decidim::Verifications::Authorizations.new(
           organization: current_organization,
           user: current_user,
-          granted: false,
           name: current_process.authorizations
-        ).query
+        ).query.select do |authorization|
+          !authorization.granted? || authorization.expired?
+        end
       end
 
       def organization_processes
