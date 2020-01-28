@@ -19,6 +19,8 @@ module Decidim
       end
 
       def show
+        raise ActionController::RoutingError, "Not Found" unless current_process.published?
+
         enforce_permission_to :read, :process, process: current_process
 
         if authorize_step
@@ -32,6 +34,11 @@ module Decidim
         end
 
         @components = authorized_components
+
+        # In case there are no authorized components, a reauthorization may be
+        # needed in which case the active combined budgeting process needs to
+        # be set.
+        session["active_combined_budgeting_process_id"] = current_process.id if @components.count.zero?
 
         # Render normally in case there is other amount than 1 component
         # available.
@@ -73,7 +80,7 @@ module Decidim
           organization: current_organization,
           user: current_user,
           name: current_process.authorizations
-        ).pluck(:name)
+        ).reject(&:expired?).pluck(:name)
       end
 
       def granted_authorizations
@@ -82,16 +89,17 @@ module Decidim
           user: current_user,
           granted: true,
           name: current_process.authorizations
-        ).query
+        ).query.reject(&:expired?)
       end
 
       def pending_authorizations
         Decidim::Verifications::Authorizations.new(
           organization: current_organization,
           user: current_user,
-          granted: false,
           name: current_process.authorizations
-        ).query
+        ).query.select do |authorization|
+          !authorization.granted? || authorization.expired?
+        end
       end
 
       def organization_processes

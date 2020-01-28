@@ -10,7 +10,7 @@ module Decidim
 
         def call(env)
           req = Rack::Request.new(env)
-          if req.get? && !in_verification?(req)
+          if req.get? && !asset_request?(req) && !in_verification?(req)
             if req.path == "/authorizations"
               response = budgeting_redirect_for(req)
               return response if response
@@ -37,7 +37,16 @@ module Decidim
           redirect("/budgeting/#{process.slug}") if process && process.published?
         end
 
+        # Mostly needed for development environments, otherwise the asset
+        # requests would clear the session variable for the active combined
+        # budgeting process.
+        def asset_request?(request)
+          request.path =~ %r{^/assets/.*$}
+        end
+
         def in_verification?(request)
+          return true if request.path =~ %r{^/authorizations/new/?$}
+
           available_verifications_for(request).any? do |verification|
             check_path = verification.root_path.sub(%r{/$}, "")
             # One of the following:

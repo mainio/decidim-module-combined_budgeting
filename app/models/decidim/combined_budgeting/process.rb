@@ -14,7 +14,7 @@ module Decidim
                foreign_key: "decidim_combined_budgeting_process_id",
                class_name: "Decidim::CombinedBudgeting::ComponentMap",
                dependent: :destroy
-      has_many :components,
+      has_many :components, -> { order(:weight) },
                through: :component_maps,
                foreign_key: "decidim_component_id",
                class_name: "Decidim::Component"
