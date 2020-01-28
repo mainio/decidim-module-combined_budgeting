@@ -35,6 +35,11 @@ module Decidim
 
         @components = authorized_components
 
+        # In case there are no authorized components, a reauthorization may be
+        # needed in which case the active combined budgeting process needs to
+        # be set.
+        session["active_combined_budgeting_process_id"] = current_process.id if @components.count.zero?
+
         # Render normally in case there is other amount than 1 component
         # available.
         return unless @components.count == 1
