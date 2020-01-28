@@ -38,6 +38,8 @@ module Decidim
         end
 
         def in_verification?(request)
+          return true if request.path =~ %r{^/authorizations/new/?$}
+
           available_verifications_for(request).any? do |verification|
             check_path = verification.root_path.sub(%r{/$}, "")
             # One of the following:
