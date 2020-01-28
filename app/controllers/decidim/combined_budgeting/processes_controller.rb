@@ -19,6 +19,8 @@ module Decidim
       end
 
       def show
+        raise ActionController::RoutingError, "Not Found" unless current_process.published?
+
         enforce_permission_to :read, :process, process: current_process
 
         if authorize_step
