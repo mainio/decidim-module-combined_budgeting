@@ -23,6 +23,11 @@ module Decidim
 
         enforce_permission_to :read, :process, process: current_process
 
+        unless current_user.confirmed?
+          session["active_combined_budgeting_process_id"] = current_process.id
+          return render :confirm_account
+        end
+
         if authorize_step
           session["active_combined_budgeting_process_id"] = current_process.id
           if unauthorized_verifications.count == 1

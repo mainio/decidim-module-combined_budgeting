@@ -65,6 +65,10 @@ fi:
           vote: Äänestä
           status:
             voted: Äänestys suoritettu
+        confirm_account:
+          title: Vahvista sähköpostiosoitteesi
+          description: Sähköpostiisi on lähetetty linkki tilisi vahvistamiseksi. Ole hyvä ja klikkaa kyseistä linkkiä.
+          already_confirmed: Olen jo vahvistanut sähköpostini
         index:
           active_processes: Käynnissä nyt
         process:
