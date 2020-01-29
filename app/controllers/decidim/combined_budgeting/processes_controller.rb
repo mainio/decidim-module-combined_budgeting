@@ -23,12 +23,12 @@ module Decidim
 
         enforce_permission_to :read, :process, process: current_process
 
-        unless current_user.confirmed?
+        if confirm_account_step?
           session["active_combined_budgeting_process_id"] = current_process.id
           return render :confirm_account
         end
 
-        if authorize_step
+        if authorize_step?
           session["active_combined_budgeting_process_id"] = current_process.id
           if unauthorized_verifications.count == 1
             verification = unauthorized_verifications.first
@@ -60,7 +60,13 @@ module Decidim
 
       private
 
-      def authorize_step
+      def confirm_account_step?
+        return false if current_user.managed?
+
+        !current_user.confirmed?
+      end
+
+      def authorize_step?
         @pending_authorizations = pending_authorizations
         return false if unauthorized_verifications.empty? &&
                         @pending_authorizations.empty?
