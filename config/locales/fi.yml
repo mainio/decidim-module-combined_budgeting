@@ -66,9 +66,9 @@ fi:
           status:
             voted: Äänestys suoritettu
         confirm_account:
-          title: Confirm your email address
-          description: You should have received a confirmation link to your email. Please click that link in order to proceed.
-          already_confirmed: I have already confirmed my email
+          title: Vahvista sähköpostiosoitteesi
+          description: Sähköpostiisi on lähetetty linkki tilisi vahvistamiseksi. Ole hyvä ja klikkaa kyseistä linkkiä.
+          already_confirmed: Olen jo vahvistanut sähköpostini
         index:
           active_processes: Käynnissä nyt
         process:
