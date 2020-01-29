@@ -10,11 +10,14 @@ module Decidim
 
         def call(env)
           req = Rack::Request.new(env)
-          if req.get? && !asset_request?(req) && !in_verification?(req)
-            if req.path == "/authorizations"
+
+          return @app.call(env) if req.get? && direct_request?(req)
+
+          if req.get? && !in_verification?(req)
+            if budget_redirect_request?(req)
               response = budgeting_redirect_for(req)
               return response if response
-            else
+            elsif req.path !~ %r{^/users/.*$}
               # The user is outside of a verification process and is not in the
               # authorizations root, so we don't need to store this information
               # anymore.
@@ -22,7 +25,13 @@ module Decidim
             end
           end
 
-          @app.call(env)
+          response = @app.call(env)
+
+          # Set the newly confirmed session variable after processing the
+          # request in case the request was for user confirmation.
+          req.session["user_newly_confirmed"] = true if req.path == "/users/confirmation"
+
+          response
         end
 
         private
@@ -39,9 +48,15 @@ module Decidim
 
         # Mostly needed for development environments, otherwise the asset
         # requests would clear the session variable for the active combined
-        # budgeting process.
-        def asset_request?(request)
-          request.path =~ %r{^/assets/.*$}
+        # budgeting process. Letter opener is generally only used in
+        # development.
+        def direct_request?(request)
+          request.path =~ %r{^/assets/.*$} || request.path =~ %r{^/letter_opener(/.*)?$}
+        end
+
+        # Checks if the budget redirect should be performed
+        def budget_redirect_request?(request)
+          request.path == "/authorizations" || request.session.delete("user_newly_confirmed")
         end
 
         def in_verification?(request)

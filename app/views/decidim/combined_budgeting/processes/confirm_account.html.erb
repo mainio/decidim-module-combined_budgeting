@@ -1,0 +1,24 @@
+<section class="wrapper">
+  <div class="row" id="active-processes">
+    <div class="text-center">
+      <h1 class="heading1 page-title"><%= t(".title") %></h1>
+    </div>
+    <div class="row collapse">
+        <div class="row">
+          <div class="columns large-6 medium-centered">
+            <div class="card">
+              <div class="card__content">
+                <p><%= t ".description" %></p>
+                <p>
+                  <%= link_to(t(".already_confirmed"), nil, class: "button expanded button--sc") %>
+                </p>
+                <p class="text-center">
+                  <%= link_to t("devise.shared.links.didn_t_receive_confirmation_instructions"), new_confirmation_path(:user) %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
