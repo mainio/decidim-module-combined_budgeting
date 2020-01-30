@@ -21,6 +21,8 @@ module Decidim
 
       def authorized_components
         current_combined_process.components.select do |component|
+          next unless component.published?
+
           project = Decidim::Budgets::Project.where(component: component).first
 
           Decidim::ActionAuthorizer.new(
