@@ -14,7 +14,7 @@ gem "decidim", Decidim::CombinedBudgeting::DECIDIM_VERSION
 gem "decidim-combined_budgeting", path: "."
 
 gem "bootsnap", "~> 1.3"
-gem "puma", "~> 3.0"
+gem "puma", "~> 4.3.3"
 gem "uglifier", "~> 4.1"
 
 group :development, :test do
