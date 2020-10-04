@@ -21,6 +21,14 @@ module Decidim
         current_combined_process.components.find_by(id: params[:component_id])
       end
 
+      def current_combined_process
+        return unless params[:process_slug]
+
+        @current_combined_process ||= combined_processes.where(
+          slug: params[:process_slug]
+        ).first!
+      end
+
       protected
 
       def organization_combined_processes
@@ -31,14 +39,6 @@ module Decidim
 
       def combined_processes
         @combined_processes ||= organization_combined_processes.where.not(published_at: nil)
-      end
-
-      def current_combined_process
-        return unless params[:process_slug]
-
-        @current_combined_process ||= combined_processes.where(
-          slug: params[:process_slug]
-        ).first!
       end
     end
   end

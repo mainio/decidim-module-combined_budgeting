@@ -1,0 +1,5 @@
+<% if respond_to?(:current_combined_process) %>
+  <%= cell "decidim/combined_budgeting/project_list_item", project %>
+<% else %>
+  <%= cell "decidim/budgets/project_list_item", project %>
+<% end %>
