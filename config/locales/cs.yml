@@ -32,60 +32,60 @@ cs:
             error: Při vytváření tohoto procesu došlo k chybě.
             success: Proces byl úspěšně vytvořen.
           destroy:
-            error: There was a problem deleting this process.
-            success: Process successfully deleted.
+            error: Při odstraňování tohoto procesu došlo k chybě.
+            success: Proces byl úspěšně odstraněn.
           edit:
-            title: Edit process
-            save: Save
+            title: Upravit proces
+            save: Uložit
           form:
-            title: Process
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
-            slug_help_sample: example
+            title: Proces
+            slug_help: 'URL slug se používají k vygenerování adres URL, které odkazují na tento proces. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help_sample: příklad
           index:
-            no_records_html: No recrods available.
-            not_published: Not published
-            published: Published
+            no_records_html: Nejsou k dispozici žádné záznamy.
+            not_published: Nezveřejněno
+            published: Zveřejněno
           new:
-            create: Create
-            title: New process
+            create: Vytvořit
+            title: Nový proces
           update:
-            error: There was a problem updating this process.
-            success: Process successfully updated.
+            error: Při aktualizaci tohoto procesu došlo k chybě.
+            success: Proces byl úspěšně aktualizován.
         titles:
-          processes: Processes
+          processes: Procesy
       processes:
         authorizations:
-          title: Authorization
-          description: In order to perform the budget voting, you need to authorize yourself.
+          title: Autorizace
+          description: Chcete-li provést hlasování o rozpočtu, musíte se autorizovat sami.
         authorizations_list:
-          pending_authorizations: Pending authorization
-          pending_authorizations_explanation: The following authorizations are pending user action. Please wait for more information on how to complete the authorizations.
+          pending_authorizations: Čeká na autorizaci
+          pending_authorizations_explanation: Následující autorizace čeká na akci uživatele. Počkejte prosím na další informace o dokončení autorizací.
         component:
-          more_info: More info
-          vote: Vote
+          more_info: Více informací
+          vote: Hlasovat
           status:
-            voted: Voting completed
+            voted: Hlasování dokončeno
         confirm_account:
-          title: Confirm your email address
-          description: You should have received a confirmation link to your email. Please click that link in order to proceed.
-          already_confirmed: I have already confirmed my email
+          title: Potvrďte svou e-mailovou adresu
+          description: Měli jste obdržet potvrzovací odkaz do vašeho e-mailu. Chcete-li pokračovat, klikněte na tento odkaz.
+          already_confirmed: Již jsem potvrdil svůj e-mail
         index:
-          active_processes: Active now
+          active_processes: Aktivní nyní
         process:
-          vote: Vote
+          vote: Hlasovat
         show:
-          select_voting: Select voting
+          select_voting: Vybrat hlasování
       models:
         processes:
           fields:
-            created_at: Created at
-            published: Published
-            title: Title
+            created_at: Vytvořeno v
+            published: Zveřejněno
+            title: Název
     menu:
-      combined_budgeting: Budgeting
+      combined_budgeting: Rozpočet
   layouts:
     decidim:
       combined_budgeting:
         voted_notification:
-          already_voted: You have already voted in this voting.
-          back_to_listing: Back to listing
+          already_voted: V tomto hlasování jste již hlasovali.
+          back_to_listing: Zpět na výpis
