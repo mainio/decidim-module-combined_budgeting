@@ -1,5 +1,10 @@
 # Decidim::CombinedBudgeting
 
+**NOTE:** This module is no longer needed and is therefore deprecated. Since
+Decidim core version 0.23 it has been possible to include multiple budgets
+within a single budgeting component. This module was solving the same problem
+scope and therefore you should migrate to using the core method instead.
+
 [![Build Status](https://travis-ci.com/mainio/decidim-module-combined_budgeting.svg?branch=master)](https://travis-ci.com/mainio/decidim-module-combined_budgeting)
 [![codecov](https://codecov.io/gh/mainio/decidim-module-combined_budgeting/branch/master/graph/badge.svg)](https://codecov.io/gh/mainio/decidim-module-combined_budgeting)
 
