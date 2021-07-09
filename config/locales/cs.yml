@@ -1,0 +1,91 @@
+cs:
+  activerecord:
+    models:
+      decidim/combined_budgeting/process: Proces
+  activemodel:
+    attributes:
+      decidim/combined_budgeting/process:
+        title: Název
+        description: Popis
+        slug: Slug
+        component_ids: Komponenty
+        authorizations: Autorizace
+  decidim:
+    admin:
+      menu:
+        combined_budgeting: Kombinované sestavování rozpočtu
+    combined_budgeting:
+      admin:
+        actions:
+          new_process: Nový proces
+          publish: Zveřejnit
+          unpublish: Zneveřejnit
+        process_publications:
+          create:
+            error: Při zveřejnění tohoto procesu došlo k chybě.
+            success: Proces byl úspěšně zveřejněn.
+          destroy:
+            error: Při zneveřejnění tohoto procesu došlo k chybě.
+            success: Proces byl úspěšně zneveřejněn.
+        processes:
+          create:
+            error: Při vytváření tohoto procesu došlo k chybě.
+            success: Proces byl úspěšně vytvořen.
+          destroy:
+            error: Při odstraňování tohoto procesu došlo k chybě.
+            success: Proces byl úspěšně odstraněn.
+          edit:
+            title: Upravit proces
+            save: Uložit
+          form:
+            title: Proces
+            slug_help: 'URL slug se používají k vygenerování adres URL, které odkazují na tento proces. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help_sample: příklad
+          index:
+            no_records_html: Nejsou k dispozici žádné záznamy.
+            not_published: Nezveřejněno
+            published: Zveřejněno
+          new:
+            create: Vytvořit
+            title: Nový proces
+          update:
+            error: Při aktualizaci tohoto procesu došlo k chybě.
+            success: Proces byl úspěšně aktualizován.
+        titles:
+          processes: Procesy
+      processes:
+        authorizations:
+          title: Autorizace
+          description: Chcete-li provést hlasování o rozpočtu, musíte se autorizovat sami.
+        authorizations_list:
+          pending_authorizations: Čeká na autorizaci
+          pending_authorizations_explanation: Následující autorizace čeká na akci uživatele. Počkejte prosím na další informace o dokončení autorizací.
+        component:
+          more_info: Více informací
+          vote: Hlasovat
+          status:
+            voted: Hlasování dokončeno
+        confirm_account:
+          title: Potvrďte svou e-mailovou adresu
+          description: Měli jste obdržet potvrzovací odkaz do vašeho e-mailu. Chcete-li pokračovat, klikněte na tento odkaz.
+          already_confirmed: Již jsem potvrdil svůj e-mail
+        index:
+          active_processes: Aktivní nyní
+        process:
+          vote: Hlasovat
+        show:
+          select_voting: Vybrat hlasování
+      models:
+        processes:
+          fields:
+            created_at: Vytvořeno v
+            published: Zveřejněno
+            title: Název
+    menu:
+      combined_budgeting: Rozpočet
+  layouts:
+    decidim:
+      combined_budgeting:
+        voted_notification:
+          already_voted: V tomto hlasování jste již hlasovali.
+          back_to_listing: Zpět na výpis
